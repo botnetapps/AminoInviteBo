@@ -40,15 +40,6 @@ for z, title in enumerate(chats.title, 1):
 	print(f"{z}.{title}")
 chatx = chats.chatId[int(input("Выберите чат/Select the chat: "))-1]
 
-#Threadpool invite bot def
-def threadinvite():
-	sub_client.invite_to_chat(userId=userId, chatId=chatx)
-
-def thread():
-    with concurrent.futures.ThreadPoolExecutor(max_workers=10000) as executor1:
-        _ = [executor1.submit(threadinvite) for _ in range(20)]
-#Threadpool invite bot def
-
 print("1.Invite Online Users/Пригласить онлайн пользователей")
 print("2.Invite User Followers/Пригласить подписчиков пользователя")
 inviteselect = input("Type Number/Введите цифру: ")
@@ -65,7 +56,6 @@ if inviteselect == "1":
 				for userId in users:
 					print(f"{userId} Invited/Приглашен")
 					_ = [executor.submit(sub_client.invite_to_chat, userId, chatx)]
-					thread()
 			else:
 				break
 		for i in range(0, 20000, 250):
@@ -81,7 +71,6 @@ if inviteselect == "1":
 								try:
 									print(f"{userId} Invited/Приглашен")
 									_ = [executor.submit(sub_client.invite_to_chat, userId, chatx)]
-									thread()
 								except:
 									pass
 						else:
@@ -100,7 +89,6 @@ if inviteselect == "2":
 					try:
 						print(f"{userId} Invited/Приглашен")
 						_ = [executor.submit(sub_client.invite_to_chat, userId, chatx)]
-						thread()
 					except:
 						pass
 			else:
