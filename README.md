@@ -1,3 +1,13 @@
 # AminoInviteBo
 AminoInviteBo. Chat Invite bot for AminoApps/Бот который приглашает людей в чат!
-- Script Soon!
+# Termux
+- apt update
+- apt upgrade
+- pip install colorama
+- pkg install python
+- pip install amino.py
+- apt install git
+- git clone https://github.com/LilZevi/AminoSpamBoV2
+- Для запуска/For starting
+- cd AminoInviteBo
+- python AminoInviteBo.py
